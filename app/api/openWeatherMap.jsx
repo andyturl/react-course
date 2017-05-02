@@ -11,12 +11,13 @@ module.exports = {
         
         return axios.get(requestUrl).then(function(response){
             if (response.data.cod && response.data.message){
-                throw new Error(response.data.message);                
+                //throw new Error(response.data.message);                
+                throw new Error('Unable to fetch weather for that location');
             } else{
                 return response.data.main.temp;
             }
         }, function(response){
-            throw new Error(response.data.message);
+            throw new Error('Unable to fetch weather for that location');
         });
     }
 }
