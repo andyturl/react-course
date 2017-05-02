@@ -24956,7 +24956,14 @@
 
 	    onSearch: function onSearch(e) {
 	        e.preventDefault();
-	        alert('not yet wired up!');
+
+	        var location = this.refs.search.value;
+	        var encodedLocation = encodeURIComponent(location);
+
+	        if (location.length > 0) {
+	            this.refs.search.value = '';
+	            window.location.hash = '#/?location=' + encodedLocation;
+	        }
 	    },
 	    render: function render() {
 	        return React.createElement(
@@ -25014,7 +25021,7 @@
 	                        React.createElement(
 	                            'li',
 	                            null,
-	                            React.createElement('input', { type: 'search', placeholder: 'Search weather by city' })
+	                            React.createElement('input', { type: 'search', placeholder: 'Search weather by city', ref: 'search' })
 	                        ),
 	                        React.createElement(
 	                            'li',
@@ -25048,7 +25055,9 @@
 	    getInitialState: function getInitialState() {
 	        return {
 	            isLoading: false,
-	            error: undefined
+	            error: undefined,
+	            location: undefined,
+	            temp: undefined
 	        };
 	    },
 	    handleSearch: function handleSearch(location) {
@@ -25068,6 +25077,22 @@
 	                errorMessage: e.message
 	            });
 	        });
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var location = this.props.location.query.location;
+
+	        if (typeof location === 'string' && location.length > 0) {
+	            this.handleSearch(location);
+	            window.location.hash = '#/';
+	        }
+	    },
+	    componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	        var location = newProps.location.query.location;
+
+	        if (typeof location === 'string' && location.length > 0) {
+	            this.handleSearch(location);
+	            window.location.hash = '#/';
+	        }
 	    },
 	    render: function render() {
 	        var _state = this.state,
@@ -25171,7 +25196,7 @@
 	        { className: "text-centered" },
 	        "It is ",
 	        temp,
-	        " in ",
+	        "\xB0C in ",
 	        location
 	    );
 	};
