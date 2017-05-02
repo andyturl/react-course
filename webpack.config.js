@@ -23,8 +23,15 @@ module.exports = {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
-            applicationStyles: 'app/styles/app.scss',
-            Navigation: 'app/components/Navigation.jsx'
+            Nav: 'app/components/Nav.jsx',
+            Weather: 'app/components/Weather.jsx',
+            WeatherForm: 'app/components/WeatherForm.jsx',
+            WeatherMessage: 'app/components/WeatherMessage.jsx',
+            ErrorModal: 'app/components/ErrorModal.jsx',
+            openWeatherMap: 'app/api/openWeatherMap.jsx',
+            About: 'app/components/About.jsx',
+            Examples: 'app/components/Examples.jsx',
+            applicationStyles: 'app/styles/app.scss'
         },
         extensions: ['', '.js', '.jsx']
     },
@@ -38,5 +45,5 @@ module.exports = {
             exclude: /(node_modules|bower_components)/
         }]
     },
-    devtool: 'cheap-module-eval-source-map'
+    devtools: 'cheap-module-eval-source-map'
 };
