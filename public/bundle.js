@@ -58,7 +58,7 @@
 	var Main = __webpack_require__(216);
 	var Weather = __webpack_require__(218);
 	var About = __webpack_require__(251);
-	var Examples = __webpack_require__(252);
+	var Examples = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"Examples\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	ReactDOM.render(React.createElement(
 	    Router,
@@ -28621,28 +28621,6 @@
 	};
 
 	module.exports = About;
-
-/***/ }),
-/* 252 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var Examples = React.createClass({
-	    displayName: 'Examples',
-
-	    render: function render() {
-	        return React.createElement(
-	            'h3',
-	            null,
-	            'Examples Component'
-	        );
-	    }
-	});
-
-	module.exports = Examples;
 
 /***/ })
 /******/ ]);
