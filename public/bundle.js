@@ -24924,11 +24924,14 @@
 	        null,
 	        React.createElement(Nav, null),
 	        React.createElement(
-	            'h2',
-	            null,
-	            'Main Component'
-	        ),
-	        props.children
+	            'div',
+	            { className: 'row' },
+	            React.createElement(
+	                'div',
+	                { className: 'columns medium-6 large-4 small-centered' },
+	                props.children
+	            )
+	        )
 	    );
 	};
 
@@ -25083,9 +25086,9 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'h3',
-	                null,
-	                'Weather Component'
+	                'h1',
+	                { className: 'text-center' },
+	                'Get weather'
 	            ),
 	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	            renderMessage()
@@ -25126,7 +25129,7 @@
 	                React.createElement('input', { type: 'text', ref: 'location' }),
 	                React.createElement(
 	                    'button',
-	                    null,
+	                    { className: 'button expanded hollow' },
 	                    'Get Weather'
 	                )
 	            )
@@ -25141,7 +25144,7 @@
 /* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
@@ -25150,11 +25153,11 @@
 	        location = _ref.location;
 
 	    return React.createElement(
-	        'h3',
-	        null,
-	        'It is ',
+	        "h3",
+	        { className: "text-centered" },
+	        "It is ",
 	        temp,
-	        ' in ',
+	        " in ",
 	        location
 	    );
 	};
@@ -28717,23 +28720,41 @@
 /* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = function About(props) {
 	    return React.createElement(
-	        'div',
+	        "div",
 	        null,
 	        React.createElement(
-	            'h3',
-	            null,
-	            'About'
+	            "h1",
+	            { className: "text-centered" },
+	            "About"
 	        ),
 	        React.createElement(
-	            'p',
+	            "p",
 	            null,
-	            'Welcome to the about page'
+	            "This is a weather application built on React. I have build this for the Complete React Web App Developer course."
+	        ),
+	        React.createElement(
+	            "p",
+	            null,
+	            "Here are some of the tools I have used:"
+	        ),
+	        React.createElement(
+	            "ul",
+	            null,
+	            React.createElement(
+	                "li",
+	                null,
+	                React.createElement(
+	                    "a",
+	                    { href: "https://facebook.github.io/react" },
+	                    "React"
+	                )
+	            )
 	        )
 	    );
 	};
@@ -28748,6 +28769,9 @@
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(166),
+	    Link = _require.Link;
+
 	var Examples = React.createClass({
 	    displayName: 'Examples',
 
@@ -28756,14 +28780,36 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'h3',
-	                null,
+	                'h1',
+	                { className: 'text-center' },
 	                'Examples'
 	            ),
 	            React.createElement(
 	                'p',
 	                null,
-	                'Welcome to examples page!'
+	                'Here are a few example locations to try out:'
+	            ),
+	            React.createElement(
+	                'ol',
+	                null,
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Didcot' },
+	                        'Didcot, UK'
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Hong Kong' },
+	                        'Hong Kong'
+	                    )
+	                )
 	            )
 	        );
 	    }
